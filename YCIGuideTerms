@@ -1,0 +1,47 @@
+
+代码规范:
+
+=========================  变量命名  ==============================
+
+1. 不同类型的的对象,将类型缩写带在其后.eg:UIImageView *background_IV
+
+类型缩写,未列出的不用带缩写:
+类型                  缩写
+NSArray               ARR
+NSMutableArray        MARR
+NSLayoutConstraint    CST
+
+UIView                View
+UIImageView           IV
+UIButton              BTN
+UILabel               LB
+
+IBOutletCollection    CLC         因为collection的顺序问题,单独规定
+
+
+2.service的mode规定:
+
+mode 用来区分service的类型,为了防止mode冲突问题(与父类冲突),特做如下规定:
+
+mode 按照继承层次,每多一级继承,+1000
+
+例:
+继承:    baseViewController <-- baseTableViewController <-- goodsViewController
+
+mode值:      300~999                   1000~1999                2000~2999
+
+
+3.关于方法命名:
+------ ViewController -------
+继承自baseViewController,使用如下方法:
+-initData           初始化中,需要进行的任务,例如对NSMutableArray属性的初始化
+-setupNavUI         与导航条相关的任务
+-setupCenterUI      与界面UI相关的任务
+-loadData           与请求数据相关
+
+
+
+=========================  图片上传  ==============================
+1.图片的命名(module)最好不要带下划线"_",因为以"_320X480_"的格式在图片url中包含了图片尺寸信息
+
+
